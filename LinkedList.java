@@ -1,3 +1,5 @@
+import LinkedList.Node;
+
 /**
  * This generic collection class uses a singly-linked data structure to store
  * store elements. Many operations are already implemented using recursion. Use
@@ -124,12 +126,12 @@ public class LinkedList<E extends Comparable<E>> {
 	}
 
 	private void removeAll(E el, Node ref) {
-		if (ref.next!=null && el.equals(ref.next.data)) {
-			ref.next= ref.next.next;
+		if (ref.next != null && el.equals(ref.next.data)) {
+			ref.next = ref.next.next;
 			n--;
 			removeAll(el);
 		}
-		if (ref.next!=null) {
+		if (ref.next != null) {
 			removeAll(el, ref.next);
 		}
 	}
@@ -138,28 +140,27 @@ public class LinkedList<E extends Comparable<E>> {
 	public void duplicateAll(E el) {
 		// This public method requires a call to a private helper method
 		// with first as an argument. It must be recursive, no loop allowed.
-		if (first!=null) {
+		if (first != null) {
 			if (first.data.equals(el)) {
 				Node copy = new Node(el, first);
 				first = copy;
 				n++;
-				if (first.next!=null) 
+				if (first.next != null)
 					duplicateAll(el, copy.next);
-			}
-			else if (first.next!=null)
+			} else if (first.next != null)
 				duplicateAll(el, first);
 		}
 	}
+
 	private void duplicateAll(E el, Node ref) {
-		if (ref.next!=null) {
+		if (ref.next != null) {
 			if (el.equals(ref.next.data)) {
 				Node copy = new Node(el, ref.next);
 				ref.next = copy;
 				n++;
-				if (ref.next!=null) 
+				if (ref.next != null)
 					duplicateAll(el, copy.next);
-			}
-			else if (ref.next!=null)
+			} else if (ref.next != null)
 				duplicateAll(el, ref.next);
 		}
 	}

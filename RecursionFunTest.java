@@ -177,7 +177,6 @@ public class RecursionFunTest {
 		list.duplicateAll("B");
 		assertEquals(0, list.size());
 		list.addLast("B");
-		assertEquals(1, list.size());
 		list.duplicateAll("B");
 		assertEquals("B", list.get(0));
 		assertEquals("B", list.get(1));
@@ -217,67 +216,84 @@ public class RecursionFunTest {
 		assertEquals(8, list.size());
 	}
 
-//	@Test
-//	public void testFindExitWithSmallGrid1() {
-//		char[][] grid = { { '+', '+', '+', '+' }, { '+', ' ', ' ', '+' }, { '+', ' ', ' ', '+' },
-//				{ '+', ' ', ' ', '+' }, { '+', ' ', '+', '+' } };
-//		ObstacleCourse top = new ObstacleCourse(2, 2, grid);
-//		assertEquals(2, top.getStartRow());
-//		assertEquals(2, top.getStartColumn());
-//		top.findTheExit();
-//		assertEquals(4, top.getExitRow());
-//		assertEquals(1, top.getExitColumn());
-//	}
-//
-//	@Test
-//	public void testFindExitWithSmallGrid2() {
-//		char[][] grid = { { '+', '+', '+', '+' }, { ' ', ' ', ' ', '+' }, { '+', ' ', ' ', '+' },
-//				{ '+', ' ', ' ', '+' }, { '+', '+', '+', '+' } };
-//		ObstacleCourse top = new ObstacleCourse(2, 2, grid);
-//		assertEquals(2, top.getStartRow());
-//		assertEquals(2, top.getStartColumn());
-//		top.findTheExit();
-//		assertEquals(1, top.getExitRow());
-//		assertEquals(0, top.getExitColumn());
-//	}
-//
-//	@Test
-//	public void testFindExitWithSmallGrid3() {
-//		char[][] grid = { { '+', '+', ' ', '+' }, { ' ', ' ', ' ', '+' }, { '+', ' ', ' ', '+' },
-//				{ '+', ' ', ' ', '+' }, { '+', '+', '+', '+' } };
-//		ObstacleCourse top = new ObstacleCourse(3, 1, grid);
-//		assertEquals(3, top.getStartRow());
-//		assertEquals(1, top.getStartColumn());
-//		top.findTheExit();
-//		assertEquals(0, top.getExitRow());
-//		assertEquals(2, top.getExitColumn());
-//	}
-//
-//	@Test
-//	public void testFindExitWithSmallGrid4() {
-//		char[][] grid = { { '+', '+', '+', '+', '+' }, { '+', ' ', ' ', ' ', '+' }, { '+', ' ', '+', ' ', '+' },
-//				{ '+', '+', '+', ' ', ' ' }, { '+', '+', '+', '+', '+' } };
-//		ObstacleCourse top = new ObstacleCourse(1, 1, grid);
-//		assertEquals(1, top.getStartRow());
-//		assertEquals(1, top.getStartColumn());
-//		System.out.println(top.toString());
-//		top.findTheExit();
-//		assertEquals(3, top.getExitRow());
-//		assertEquals(4, top.getExitColumn());
-//		System.out.println(top.toString());
-//	}
-//
-//	@Test
-//	public void testFindExitWithSmallGridNoExit() {
-//		char[][] grid = { { '+', '+', '+', '+', '+' }, { '+', ' ', ' ', ' ', '+' }, { '+', ' ', '+', ' ', '+' },
-//				{ '+', '+', '+', ' ', '+' }, { '+', '+', '+', '+', '+' } };
-//		ObstacleCourse top = new ObstacleCourse(1, 1, grid);
-//		assertEquals(1, top.getStartRow());
-//		assertEquals(1, top.getStartColumn());
-//		System.out.println(top.toString());
-//		top.findTheExit();
-//		assertEquals(-1, top.getExitRow());
-//		assertEquals(-1, top.getExitColumn());
-//		System.out.println(top.toString());
-//	}
+	@Test
+	public void testFindExitWithSmallGrid1() {
+		char[][] grid = {   { '+', '+', '+', '+' }, 
+							{ '+', ' ', ' ', '+' }, 
+							{ '+', ' ', ' ', '+' },
+							{ '+', ' ', ' ', '+' }, 
+							{ '+', ' ', '+', '+' } };
+		ObstacleCourse top = new ObstacleCourse(2, 2, grid);
+		assertEquals(2, top.getStartRow());
+		assertEquals(2, top.getStartColumn());
+		System.out.println(top.toString());
+		top.findTheExit();
+		System.out.println(top.toString());
+		assertEquals(4, top.getExitRow());
+		assertEquals(1, top.getExitColumn());
+	}
+
+	@Test
+	public void testFindExitWithSmallGrid2() {
+		char[][] grid = {   { '+', '+', '+', '+' }, 
+							{ ' ', ' ', ' ', '+' }, 
+							{ '+', ' ', ' ', '+' },
+							{ '+', ' ', ' ', '+' }, 
+							{ '+', '+', '+', '+' } };
+		ObstacleCourse top = new ObstacleCourse(2, 2, grid);
+		assertEquals(2, top.getStartRow());
+		assertEquals(2, top.getStartColumn());
+		top.findTheExit();
+		assertEquals(1, top.getExitRow());
+		assertEquals(0, top.getExitColumn());
+	}
+
+	@Test
+	public void testFindExitWithSmallGrid3() {
+		char[][] grid = {   { '+', '+', ' ', '+' }, 
+							{ ' ', ' ', ' ', '+' }, 
+							{ '+', ' ', ' ', '+' },
+							{ '+', ' ', ' ', '+' }, 
+							{ '+', '+', '+', '+' } };
+		ObstacleCourse top = new ObstacleCourse(3, 1, grid);
+		assertEquals(3, top.getStartRow());
+		assertEquals(1, top.getStartColumn());
+		top.findTheExit();
+		assertEquals(0, top.getExitRow());
+		assertEquals(2, top.getExitColumn());
+	}
+
+	@Test
+	public void testFindExitWithSmallGrid4() {
+		char[][] grid = {   { '+', '+', '+', '+', '+' }, 
+							{ '+', ' ', ' ', ' ', '+' }, 
+							{ '+', ' ', '+', ' ', '+' },
+							{ '+', '+', '+', ' ', ' ' }, 
+							{ '+', '+', '+', '+', '+' } };
+		ObstacleCourse top = new ObstacleCourse(1, 1, grid);
+		assertEquals(1, top.getStartRow());
+		assertEquals(1, top.getStartColumn());
+		System.out.println(top.toString());
+		top.findTheExit();
+		assertEquals(3, top.getExitRow());
+		assertEquals(4, top.getExitColumn());
+		System.out.println(top.toString());
+	}
+
+	@Test
+	public void testFindExitWithSmallGridNoExit() {
+		char[][] grid = {   { '+', '+', '+', '+', '+' }, 
+							{ '+', ' ', ' ', ' ', '+' }, 
+							{ '+', ' ', '+', ' ', '+' },
+							{ '+', '+', '+', ' ', '+' }, 
+							{ '+', '+', '+', '+', '+' } };
+		ObstacleCourse top = new ObstacleCourse(1, 1, grid);
+		assertEquals(1, top.getStartRow());
+		assertEquals(1, top.getStartColumn());
+		System.out.println(top.toString());
+		top.findTheExit();
+		assertEquals(-1, top.getExitRow());
+		assertEquals(-1, top.getExitColumn());
+		System.out.println(top.toString());
+	}
 }

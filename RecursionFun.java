@@ -18,12 +18,12 @@ public class RecursionFun {
 	// Complete recursive method combinations that returns from n choose k.
 	// This method is described in 17_SimpleRecursion.pptx.
 	public int combinations(int n, int k) {
-		if (k==1)
+		if (k == 1)
 			return n;
-		else if (n==k)
+		else if (n == k)
 			return 1;
 		else
-			return combinations(n-1, k-1) + combinations(n-1, k);
+			return combinations(n - 1, k - 1) + combinations(n - 1, k);
 	}
 
 	// Complete recursive method intWithCommas that returns the argument as a String
@@ -38,28 +38,28 @@ public class RecursionFun {
 	public String intWithCommas(int n) {
 		String result = "";
 		String nString = Integer.toString(n);
-		
+
 		if (nString.length() < 3)
 			return nString;
-		
-		result = nString.substring(nString.length()-3, nString.length());
-		nString = nString.substring(0, nString.length()-3);
-		
+
+		result = nString.substring(nString.length() - 3, nString.length());
+		nString = nString.substring(0, nString.length() - 3);
+
 		return intWithCommas(nString, result);
 	}
-	
+
 	private String intWithCommas(String nString, String result) {
 		if (nString.length() < 3) {
-			if (nString.length()>0)
+			if (nString.length() > 0)
 				result = "," + result;
-			return nString+result;
+			return nString + result;
 		}
 		if (nString.length() > 3) {
 			result = "," + result;
-			result = nString.substring(nString.length()-3, nString.length())+result;
+			result = nString.substring(nString.length() - 3, nString.length()) + result;
 		}
-		
-		nString = nString.substring(0, nString.length()-3);
+
+		nString = nString.substring(0, nString.length() - 3);
 		return intWithCommas(nString, result);
 	}
 
@@ -90,7 +90,7 @@ public class RecursionFun {
 			int temp = x[len];
 			x[len] = x[index];
 			x[index] = temp;
-			reverseArray(x, index+1, len-1);
+			reverseArray(x, index + 1, len - 1);
 		}
 	}
 
@@ -101,18 +101,18 @@ public class RecursionFun {
 	public int arrayRange(int[] a) {
 		return arrayRange(a, 0, a[0], a[0]);
 	}
-	
+
 	private int arrayRange(int[] a, int index, int min, int max) {
-		if (index<a.length) {
-			if (a[index]<min)
+		if (index < a.length) {
+			if (a[index] < min)
 				min = a[index];
-			if (a[index]>max)
+			if (a[index] > max)
 				max = a[index];
 		}
-		
-		if (index!=a.length)
-			return arrayRange(a, index+1, min, max);
-		return max-min;
+
+		if (index != a.length)
+			return arrayRange(a, index + 1, min, max);
+		return max - min;
 	}
 
 	// Return true if nums has all int elements in ascending order.
@@ -121,11 +121,12 @@ public class RecursionFun {
 		// Need to send down 0 to keep track of the index
 		return isSorted(nums, 0);
 	}
+
 	private boolean isSorted(int[] nums, int index) {
-		if (index+1<nums.length) {
-			if (nums[index]>nums[index+1])
+		if (index + 1 < nums.length) {
+			if (nums[index] > nums[index + 1])
 				return false;
-			return isSorted(nums, index+1);
+			return isSorted(nums, index + 1);
 		}
 		return true;
 	}
@@ -135,11 +136,12 @@ public class RecursionFun {
 	public boolean found(String search, String[] strs) {
 		return found(search, strs, 0);
 	}
+
 	private boolean found(String search, String[] strs, int index) {
 		if (strs[index].equals(search))
 			return true;
-		else if (index+1<strs.length)
-			return found(search, strs, index+1);
+		else if (index + 1 < strs.length)
+			return found(search, strs, index + 1);
 		return false;
 	}
 }
